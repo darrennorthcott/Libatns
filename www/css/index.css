@@ -1,0 +1,346 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    //background-color:#E4E4E4;
+    //background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    //background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+   // background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+   // background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+  //  background-attachment:fixed;
+  background:url(../img/white_bg.png) no-repeat center top; /* 170px x 200px */
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    background:url(../img/white_bg.png) no-repeat center top; /* 170px x 200px */
+   position:relative;             /* position in the center of the screen */
+    //left:50%;
+    //top:50%;
+    height:50px;                   /* text area height */
+    //width:225px;                   /* text area width */
+    text-align:center;
+    
+    //margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        //padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+       // margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+h1 {
+font-family: Open Sans;
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+.items a{
+	display:inline-block;
+	width:132px;
+	height:132px;
+	background: #cdcdcd;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	box-shadow: 2px 2px 5px #ececec;
+	
+}
+
+    @font-face {
+  font-family: 'Open Sans';
+  src: url('../Open_Sans/OpenSans-Light.ttf');
+  }
+    
+    #panel{width:500px;background:#262626;}
+    .ui-panel{box-shadow:inset -3px -3px 6px #bfbfbf; background: #f0f0f0}
+    #logos{
+	    width:149px;
+	    height:185px;
+	    background:url(../img/zombieCom_logo_v2_small.png) no-repeat;
+	    margin-left:auto;
+	    margin-right:auto;
+	    margin-top:60px;
+	    clear:left;
+    }
+    #home{
+	       }
+	       .main{
+		       width:150px;
+		       height:150px;
+		       float:left;
+		      margin-right:20px;
+		       
+	       }
+	       .drinkVector{
+		       width:100%;
+		       height:100%;
+	       }
+	       a img{
+		       
+		       width:132px;
+		       height:132px;
+		       float:left;
+	       }
+	       .ui-header{
+		       background: url(../img/header_bg.png) repeat-x;
+		       height:48px;
+		       border:none;
+		       
+		       padding-top:1px;
+	       }
+	       .MenuHeader {
+		     padding-top: 30px;
+		     background:#f3f3f3;
+	       }
+	       #headerLogo{
+		       text-indent: -9000px;
+		       
+		       height:28px;
+		       background:url(../img/libatns_logo.png) center center no-repeat;
+		       
+	       }
+	       #menuTag{
+		       width:42px;
+		       height:56px;
+		       background:url(../img/menu_tag.png) no-repeat;
+		       margin-top:-4px;
+		       border:none;
+		       border-radius: 0;
+		       text-indent:-9000px;
+	       }
+	       
+	       html, body{margin-top:0; background: url(../img/white_bg.jpg) no-repeat;}
+	       .ui-overlay-c{
+		       background-image: url(../img/white_bg.jpg) no-repeat;
+	       }
+	       .ui-dialog, .ui-dialog-contain{
+		      width: 98.5%;
+	max-width: 600px;
+	margin: 10% auto 0px auto;
+	padding: 0;
+	position: relative;
+	top: -15px; 
+	margin-top:0;
+	background:#f3f3f3 ;
+	height:100%;
+	       }
+	       .dialogTag{
+		       bottom:48px;
+		       position:absolute;
+		       box-shadow:0;
+		       left:4px;
+	       }
+	       #Apanel{
+		       height:100%;
+	       }
+	       #Apanel .ui-content{
+		       height:100%;
+	       }
+	       .glass{
+		       position:absolute;
+		       background: url(../img/glass.png) no-repeat;
+		       width:234px;
+		       height:298px;
+		       top:130px;
+		       left:30px;
+	       }
+	       
+	       span{
+		       //margin-top:-20px;
+		       font-family: Open Sans;
+		       font-weight: 100;
+		       font-size: 1.5em;
+		       padding-left: 10px;
+		       padding-right:10px;
+		      // text-align:center;
+		      // float:left;
+		       
+	       }
+	      
+	       hr{
+		       //float:left;
+		       display:inline-block;
+		       width:10%;
+	       }
+	       .menuItems{
+		       width:100px;
+		       height:100px;
+		      display:block;
+		      float:left;
+		       border:4px solid #dfdfdf;
+		       border-radius:0;
+		       margin-right: 10px;
+	margin-bottom: 10px;
+	text-indent:-9000px;
+	box-shadow: 1px 1px 4px #aaa;
+	line-height: 100px;
+	font-family: Open Sans;
+	color: #262626;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 1em;
+	       }
+	       .browse{
+		      background:url(../img/Browse_Menu.png) no-repeat center;
+	       }
+	       .mixMenu{
+		       background:url(../img/Create_Menu.png) no-repeat center;
+	       }
+	       .favs{
+		       background:url(../img/Favs_Menu.png) no-repeat center;
+	       }
+	       .profile{
+		       background:url(../img/Me_Menu.png) no-repeat center;
+	       }
+	       .endItem{
+		       margin-right:0;
+	       }
+	       .menuItemsContainer{
+		       margin-left:auto;
+		       margin-right:auto;
+		       width:80%;
+		       height:auto;
+	       }
+	       #featuredDrink{
+		       margin-bottom:30px;
+		       width:90%;
+		       height:80px;
+		       margin-left:auto;
+		       margin-right:auto;
+		       margin-top:16px;
+	       }
+	       #featuredDrink img{
+		       float:left;
+		       width:60px;
+		       height:80px;
+	       }
+	       h3{
+	       font-family: Open Sans;
+		       float:left;
+		       margin-left:10px;
+		       text-transform: none;
+		       margin-bottom:4px;
+		       
+	       }
+	       h4{
+	       font-family: Open Sans;
+		       float:left;
+		       margin-left:10px;
+		       text-transform: none;
+		       margin-top:0;
+	       }
+	       
+	      
+	      .interiorContainer{
+		      list-style: none;
+		      padding:0;
+	      }
+	      .interiorContainer li{
+		      text-align: left;
+		      padding:0px;
+		      margin:0px;
+	      }
+	       
+.browseOption{
+	
+	font-family:Open Sans;
+	font-size: 2em;
+	padding-left:90px;
+	padding-top:40px;
+	padding-bottom:40px;
+	height:85px;
+	line-height:85px;
+	width:100%;
+	color:#262626;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.ingred{
+	background:url(../img/ingredient2.png) no-repeat left center;
+}
+.type{
+	background:url(../img/type.png) no-repeat left center;
+}
+.occ{
+	background:url(../img/occasion.png) no-repeat left center;
+}

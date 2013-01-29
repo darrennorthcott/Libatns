@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet/less" type="text/css" href="style.less">
+    <script type="text/javascript" src="js/jquery1.8.js"></script>
+    <script type="text/javascript" src="js/hammer/hammer.js"></script>
+    <script type="text/javascript" src="js/hammer/jquery.hammer.js"></script>
+    <script type="text/javascript" src="js/Cocktail.js"></script>
+    <script type="text/javascript" src="js/less-1.3.3.min.js"></script>
+    <title>Cocktails</title>
+  </head>
+  <body>
+    <div id="main">
+      <div class="menu">
+        <ul id="actions">
+          <li id="coke" class="add button">
+            Add Coke
+            <div class="coke liquid"></div>
+          </li>
+          <li id="rum" class="add button">
+            Add Rum
+            <div class="rum liquid"></div>
+          </li>
+          <li class="clear button">
+            Empty
+            <div class="liquid"></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container" id="cocktail_container">
+
+      </div>
+    </div>
+    <script>
+      $(document).ready(function(){
+
+        if(typeof console === "undefined"){
+          //Dummy console function incase we're doing IE or something
+          console = { log: function(thingToLog){
+
+          }}
+        }
+
+        var $main = $("#main"),
+            $cocktailContainer = $("#cocktail_container"),
+            $add = $(".add"), $clear = $(".clear"),
+            cocktail = new SimonNameSpace.Cocktail(),
+            cocktailHeight = 400, cocktailWidth = 200;
+
+
+        $cocktailElement = $(cocktail.getHtmlElement(cocktailHeight, cocktailWidth));
+        $cocktailContainer.append($cocktailElement);
+        $add.click(function(){
+          cocktail.addMix(new SimonNameSpace.Mix(this.id, 1, $(this).find(".liquid").css("background-color")));
+          $(".dragPoint").hammer({
+            drag_min_distance: 0,
+            drag_vertical: true,
+            transform: false,
+            hold: false,
+            prevent_default: true
+          })
+          .bind("dragend", function(ev) {
+            var $p = $(this).parent();
+
+          })
+          .bind("drag", function(ev) {
+            //$(this).parent().parent()[0].delta=ev.distanceY
+            var $p = $(this).parent()
+            $p.css({top: $p[0].originalTop+ev.distanceY})
+              .height($p[0].originalHeight-ev.distanceY)
+              .nextAll().each(function(){
+                $(this).css({ top: this.originalTop+ev.distanceY 
+              })
+            });
+            var $mixs = $p.parent().find(".mix")
+            var totalHeight=0;
+            $mixs.each(function(){
+              totalHeight += $(this).height();
+            })
+            $mixs.each(function(){
+              $(this).find(".parts").text((($(this).height()/totalHeight)*100).toFixed(2) + "%")
+            })
+
+            //$(this).css("marginTop", ev.distanceY)
+          })
+          .bind("dragstart", function(ev){
+            var $p = $(this).parent()
+            $p[0].originalHeight = $p.height()
+            $p[0].originalTop = $p.position().top
+            $p.nextAll().each(function(){
+              this.originalTop = $(this).position().top;
+            });
+          })
+        });
+        $clear.click(function(){
+          cocktail.empty();
+        });
+
+
+      });
+    </script>
+    <script>
+        var _gaq=[['_setAccount','UA-26262243-1'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  </body>
+</html>

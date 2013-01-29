@@ -1,0 +1,111 @@
+.rounded-corners (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('Open_Sans/OpenSans-Regular.ttf');
+}
+
+body{
+  background: #53777A;
+  font-family: 'Open Sans';
+  text-align: center;
+}
+
+.menu{
+  .rounded-corners();
+
+  background-color: #D95B43;
+  padding: 5px;
+  font-size: 12px;
+  ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li{
+      .rounded-corners();
+      display: inline-block;
+      background-color: #E96B53;
+      padding: 4px;
+      width: 70px;
+      &:hover{
+        background-color: #F97B63;
+      }
+    }
+  }
+}
+
+.button{
+  cursor: pointer;
+}
+
+.liquid{
+  height: 30px; width: 70px;
+  display: inline-block;
+}
+.liquid.coke{
+  background-color: #993300;
+  background-color: rgba(112, 52, 0, .8);
+}
+.liquid.rum{
+  background-color: #660000;
+}
+
+.container{
+  .rounded-corners(10px);
+
+  position: relative;
+  background-color: #63888A;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  box-shadow: 0 0 10px #000;
+}
+
+.cocktail{
+  border-radius: 0 0 10px 10px;
+  border: 1px solid #666;
+  position: relative;
+  overflow: hidden;
+  .glass{
+    background: -moz-linear-gradient(left,  rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.2)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(255,255,255,0.2) 0%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+    position: relative;
+    z-index: 10;
+  }
+  .mix{
+    position: absolute;
+    .parts{
+      text-align: center;
+      .rounded-corners();
+      background-color: rgba(255,255,255,.4);
+      display: inline-block;
+      position: relative;
+      margin: 2px;
+      padding: 3px;
+      height: 20px;
+    }
+    .dragPoint{
+      border-radius: 25px;  
+      background-color: #DDD;
+      position: relative;
+      margin: 0 auto 0 auto;
+      z-index: 20;
+    }
+  }
+}
+
+
+.red{
+  background: #ff0000;
+}

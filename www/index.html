@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+       
+        <!-- <link rel="stylesheet" href="css/jquery.mobile.structure-1.3.0-beta.1.min-notheme.css" /> -->
+        <link rel="stylesheet" href="css/jquery.mobile-1.3.0-beta.1.css" />
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/jquery.mobile-1.3.0-beta.1.min.js"></script>
+<script type="text/javascript" src="cordova-2.2.0.js"></script>
+<link rel="stylesheet/less" type="text/css" href="style.less">
+   <link rel="stylesheet" type="text/css" href="css/index.css" />  
+    <script type="text/javascript" src="js/hammer/hammer.js"></script>
+    <script type="text/javascript" src="js/hammer/jquery.hammer.js"></script>
+    <script type="text/javascript" src="js/Cocktail.js"></script>
+    <script type="text/javascript" src="js/less-1.3.3.min.js"></script>
+       
+        <script type="text/javascript" src="js/index.js"></script>
+       
+        
+                <title>Libatns</title>
+    </head>
+    <style>
+
+    </style>
+    <body>
+        <div id="home" data-role="page">
+        	<div data-role="header" data-id="masthead" data-position="fixed">
+	        	
+	        	<h1 id="headerLogo">Libatns</h1>
+	        </div>
+	        
+	        <div data-role="content">
+	        <div style="text-align:center">
+	        <hr/>
+		        <span>Featured Drink</span>
+		    <hr/>
+	        </div>
+		        <div id="featuredDrink">
+		        	<img src="img/glass.png"/>
+		        	<h3>Lorem Drink Name</h3>
+		        	<h4>By: Darren Northcott</h4>
+		        </div>
+		        <div class="menuItemsContainer">
+			        <a href="#BrowseLanding"  class="menuItems browse" >Browse</a>
+			        <a href="#page-2"  class="menuItems mixMenu endItem">Mix</a>
+			        <a href="#page-2"  class="menuItems favs">Favourites</a>
+			        <a href="#page-2"  class="menuItems profile endItem">Profile</a>
+		        </div>
+			    
+			</div>
+    
+
+</div>
+
+<div id="BrowseLanding" data-role="page">
+	
+	<div data-role="header" data-id="masthead" data-position="fixed">
+       <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag">Menu</a> <h1 id="headerLogo">Libatns</h1>
+    </div>    
+    
+    <div data-role="content">
+    	<h1>Browse</h1>
+    	<ul class="interiorContainer">
+    		<li><a href="#page-1" class="browseOption ingred">By Ingredient</a></li>
+    		<li><a href="" class="browseOption type">By Type</a></li>
+    		<li><a href="" class="browseOption occ">By Occasion</a></li>
+    		
+    	</ul>
+    	<a href="" class="randomShake">Shake</a>
+    </div>
+</div>
+
+
+
+<div id="page-1" data-role="page">
+    <div data-role="header" data-id="masthead" data-position="fixed">
+       <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag">Menu</a> <h1 id="headerLogo">Libatns</h1>
+    </div>    
+    <div data-role="content">
+        <h1>Browse By Ingredient</h1>
+            <p>Lorem Ipsum dolor it amet blah blah blah</p>
+            <div class="items">
+	            <a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>
+	            <a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
+	            <a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
+	            <a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>		            
+<a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
+<a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
+<a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
+<a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
+            </div>
+            <a href="#" data-role="button" data-rel="back" data-transition="slide" data-direction="reverse">Back</a>
+    </div>
+    
+</div>
+
+<div id="page-2" data-role="page">
+    <div data-role="header" data-id="masthead" data-position="fixed">
+       <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag">Menu</a> <h1 id="headerLogo">Libatns</h1>
+    </div>
+    <div data-role="content">
+        <div id="main">
+      <div class="menu">
+        <ul id="actions">
+          <li id="coke" class="add button">
+            Add Coke
+            <div class="coke liquid"></div>
+          </li>
+          <li id="rum" class="add button">
+            Add Rum
+            <div class="rum liquid"></div>
+          </li>
+          <li class="clear button">
+            Empty
+            <div class="liquid"></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container" id="cocktail_container">
+
+      </div>
+    
+    </div>
+
+        <a href="#" data-role="button" data-rel="back" data-transition="slide" data-direction="reverse">Back</a>
+    </div>
+    
+</div>
+
+<div id="page-3" data-role="page">
+    <div data-role="header" data-id="masthead" data-position="fixed">
+       <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag">Menu</a> <h1 id="headerLogo">Libatns</h1>
+    </div>
+    <div data-role="content">
+        <img class="drinkVector" src="img/libatns_iphone_8__0016_FINAL CONFIRMATION.jpg" />
+        <a href="#" data-role="button" data-rel="back" data-transition="slide" data-direction="reverse">Back</a>
+    </div>
+ </div>
+        
+     <div id="Apanel" data-role="page">
+     <div class="MenuHeader">
+     <h1 id="headerLogo">Libatns</h1>
+     </div>
+     
+<div data-role="content">
+	<div style="text-align:center">
+	        <hr/>
+		        <span>Featured Drink</span>
+		    <hr/>
+	        </div>
+		        <div id="featuredDrink">
+		        	<img src="img/glass.png"/>
+		        	<h3>Lorem Drink Name</h3>
+		        	<h4>By: Darren Northcott</h4>
+		        </div>
+		        <div class="menuItemsContainer">
+			        <a href="#BrowseLanding"  class="menuItems browse" >Browse</a>
+			        <a href="#page-2"  class="menuItems mixMenu endItem">Mix</a>
+			        <a href="#page-2"  class="menuItems favs">Favourites</a>
+			        <a href="#page-2"  class="menuItems profile endItem">Profile</a>
+		        </div>
+	<a href="" data-role="button" data-rel="back" id="menuTag" class="dialogTag">Back</a>
+	<!-- <a href="#home" data-role="button" data-rel="close">Close</a> -->
+	</div></div>   
+       
+        
+
+        <script type="text/javascript">
+            app.initialize();
+            
+ // $( "#panel" ).panel( "open"  );   
+ 
+/*
+ $('div.ui-page').live("swiperight", function(){
+var prevpage = $(this).prev('div[data-role="page"]');
+if (prevpage.length > 0) {
+$.mobile.changePage(prevpage, {transition: "slide",
+reverse: true}, true, true);
+}
+});
+*/
+ 
+ 
+    
+   
+ 
+$("div[data-role=page]").bind("pagebeforeshow", function (e, data) {
+    $.mobile.silentScroll(0);
+    $.mobile.changePage.defaults.transition = 'slide';
+});
+
+
+
+
+
+        </script>
+        <script>
+      $(document).ready(function(){
+
+        if(typeof console === "undefined"){
+          //Dummy console function incase we're doing IE or something
+          console = { log: function(thingToLog){
+
+          }}
+        }
+
+        var $main = $("#main"),
+            $cocktailContainer = $("#cocktail_container"),
+            $add = $(".add"), $clear = $(".clear"),
+            cocktail = new SimonNameSpace.Cocktail(),
+            cocktailHeight = 400, cocktailWidth = 200;
+
+
+        $cocktailElement = $(cocktail.getHtmlElement(cocktailHeight, cocktailWidth));
+        $cocktailContainer.append($cocktailElement);
+        $add.click(function(){
+          cocktail.addMix(new SimonNameSpace.Mix(this.id, 1, $(this).find(".liquid").css("background-color")));
+          $(".dragPoint").hammer({
+            drag_min_distance: 0,
+            drag_vertical: true,
+            transform: false,
+            hold: false,
+            prevent_default: true
+          })
+          .bind("dragend", function(ev) {
+            var $p = $(this).parent();
+
+          })
+          .bind("drag", function(ev) {
+            //$(this).parent().parent()[0].delta=ev.distanceY
+            var $p = $(this).parent()
+            $p.css({top: $p[0].originalTop+ev.distanceY})
+              .height($p[0].originalHeight-ev.distanceY)
+              .nextAll().each(function(){
+                $(this).css({ top: this.originalTop+ev.distanceY 
+              })
+            });
+            var $mixs = $p.parent().find(".mix")
+            var totalHeight=0;
+            $mixs.each(function(){
+              totalHeight += $(this).height();
+            })
+            $mixs.each(function(){
+              $(this).find(".parts").text((($(this).height()/totalHeight)*100).toFixed(2) + "%")
+            })
+
+            //$(this).css("marginTop", ev.distanceY)
+          })
+          .bind("dragstart", function(ev){
+            var $p = $(this).parent()
+            $p[0].originalHeight = $p.height()
+            $p[0].originalTop = $p.position().top
+            $p.nextAll().each(function(){
+              this.originalTop = $(this).position().top;
+            });
+          })
+        });
+        $clear.click(function(){
+          cocktail.empty();
+        });
+
+
+      });
+    </script>
+
+    </body>
+</html>
