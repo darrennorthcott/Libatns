@@ -23,18 +23,21 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
        
-        <!-- <link rel="stylesheet" href="css/jquery.mobile.structure-1.3.0-beta.1.min-notheme.css" /> -->
-        <link rel="stylesheet" href="css/jquery.mobile-1.3.0-beta.1.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.structure-1.3.0-beta.1.min-notheme.css" />
+       <!--  <link rel="stylesheet" href="css/jquery.mobile-1.3.0-beta.1.css" /> -->
 <script src="js/jquery-1.9.0.min.js"></script>
 <script src="js/jquery.mobile-1.3.0-beta.1.min.js"></script>
 <script type="text/javascript" src="cordova-2.2.0.js"></script>
+<link rel="stylesheet" type="text/css" href="css/index.css" /> 
 <link rel="stylesheet/less" type="text/css" href="style.less">
-   <link rel="stylesheet" type="text/css" href="css/index.css" />  
+<link rel="stylesheet/less" type="text/css" href="css/slider.css">
+    
     <script type="text/javascript" src="js/hammer/hammer.js"></script>
     <script type="text/javascript" src="js/hammer/jquery.hammer.js"></script>
     <script type="text/javascript" src="js/Cocktail.js"></script>
     <script type="text/javascript" src="js/less-1.3.3.min.js"></script>
-       
+     <script src="js/parse-1.2.0.min.js"></script>  
+      <script type="text/javascript" src="js/verticalSlider.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
        
         
@@ -44,80 +47,125 @@
 
     </style>
     <body>
+    <!-- FACEBOOK LOGIN **************** -->
+         
+
+    
+    
+    
+    
+    
+    <!-- ********** ACTIVITY PAGE ************ -->
+    
         <div id="home" data-role="page">
         	<div data-role="header" data-id="masthead" data-position="fixed">
+        	<a href="" data-role="button" class="logoutButton" onclick="javascript:logout();">Logout</a>
+	        	<a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag"><h1 id="headerLogo">Libatns</h1></a>
 	        	
-	        	<h1 id="headerLogo">Libatns</h1>
+	        	
 	        </div>
 	        
 	        <div data-role="content">
-	        <div style="text-align:center">
-	        <hr/>
-		        <span>Featured Drink</span>
-		    <hr/>
-	        </div>
-		        <div id="featuredDrink">
-		        	<img src="img/glass.png"/>
-		        	<h3>Lorem Drink Name</h3>
-		        	<h4>By: Darren Northcott</h4>
-		        </div>
-		        <div class="menuItemsContainer">
-			        <a href="#BrowseLanding"  class="menuItems browse" >Browse</a>
-			        <a href="#page-2"  class="menuItems mixMenu endItem">Mix</a>
-			        <a href="#page-2"  class="menuItems favs">Favourites</a>
-			        <a href="#page-2"  class="menuItems profile endItem">Profile</a>
-		        </div>
+	        
+	       	       
+
+ 
+	        
+	       		<div id="activityContainer" class="items2">
+	       			<div class="activityItem">
+	       				<span class="userIs">Darren Is Drinking</span>
+	       				<div class="drinkItem">
+	       					<a href="#drink-page" data-transition="pop" >
+	       						<div class="itemInner">
+	       							<img src="img/glass.png"/><br/><span class="itemText">Drink Name</span>
+	       						</div>
+	       					</a>
+	       				</div>
+	       				<span class="geoLocation">At Pub and Bar</span>
+	       			</div>
+	       		</div>
+
+			    
 			    
 			</div>
     
 
-</div>
-
-<div id="BrowseLanding" data-role="page">
-	
-	<div data-role="header" data-id="masthead" data-position="fixed">
-       <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag">Menu</a> <h1 id="headerLogo">Libatns</h1>
-    </div>    
-    
-    <div data-role="content">
-    	<h1>Browse</h1>
-    	<ul class="interiorContainer">
-    		<li><a href="#page-1" class="browseOption ingred">By Ingredient</a></li>
-    		<li><a href="" class="browseOption type">By Type</a></li>
-    		<li><a href="" class="browseOption occ">By Occasion</a></li>
-    		
-    	</ul>
-    	<a href="" class="randomShake">Shake</a>
-    </div>
-</div>
+		</div>
 
 
 
-<div id="page-1" data-role="page">
+
+
+
+<!-- ********** BROWSE PAGE ************ -->
+
+<div id="browse-page" data-role="page">
+	<div id="filterPanel" data-role="panel" data-position="right" >
+			<h1>Mix</h1>
+        	
+        	<ul id="liquorPanel" data-role="listview" data-filter="true" data-split-icon="check">
+        		<li><a href="" class="filterBox">Vodka</a><a href=""></a></li>
+        		<li><a href="" class="filterBox">Rum</a></li>
+        		<li><a href="" class="filterBox">Gin</a></li>
+        		<li><a href="" class="filterBox">Whiskey</a></li>
+        		<li><a href="" class="filterBox">Dark Rum</a></li>
+        		<li><a href="" class="filterBox">Rye</a></li>
+        		
+        	</ul>
+        	
+     </div>
+     <div id="filterPanel2" data-role="panel" data-position="right">
+        	<h1>Liquor</h1>
+        	<ul id="liquorPanel" data-role="listview" data-filter="true" data-split-icon="check">
+        		<li><a href="" class="filterBox">Vodka</a><a id="checker" href=""></a></li>
+        		<li><a href="" class="filterBox">Rum</a></li>
+        		<li><a href="" class="filterBox">Gin</a></li>
+        		<li><a href="" class="filterBox">Whiskey</a></li>
+        		<li><a href="" class="filterBox">Dark Rum</a></li>
+        		<li><a href="" class="filterBox">Rye</a></li>
+        	</ul>
+        	
+        	
+     </div>
+     
+     
+     
     <div data-role="header" data-id="masthead" data-position="fixed">
-       <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag">Menu</a> <h1 id="headerLogo">Libatns</h1>
-    </div>    
+      <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag"><h1 id="headerLogo">Libatns</h1></a>
+    </div>   
+     
     <div data-role="content">
-        <h1>Browse By Ingredient</h1>
-            <p>Lorem Ipsum dolor it amet blah blah blah</p>
-            <div class="items">
-	            <a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>
-	            <a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
-	            <a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
-	            <a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>		            
-<a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
-<a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
-<a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
-<a href="#page-3" data-transition="flip" ><img src="img/drink_square.jpg"/></a>	
+    
+        <h1>Browse</h1>
+        
+        <p id="browseNumber" class="resultsNumber"><div class="ribbon"><span class="tailTop"></span><span class="tailBottom"></span><span id="resultsDigit">0000</span> </div> 		<span class="topTypography">Unique</span> <span class="bottomTypography">Beverages</span></p>
+        <br/>
+        <div data-role="collapsible" data-inset="false" data-collapsed-icon="check-box" data-expanded-icon="check-box">
+        <h2>Narrow It Down</h2>
+        <ul data-role="listview" data-icon="bulletList">
+        <li><a href="#filterPanel2"  >Liquor <span class="info">(3 selected)</span></a> </li>
+        	<li><a href="#filterPanel"  >Mixes</a></li>
+        	<li><a href="#filterPanel"  >Type</a></li>
+        	<li><a href="#filterPanel"  >Occasion</a></li>
+        </ul>
+        </div>
+        <br/>
+        	
+            <!-- <p>Lorem Ipsum dolor it amet blah blah blah</p> -->
+            <div class="items2" id="drinkListing">
+            loading...
+	           
             </div>
             <a href="#" data-role="button" data-rel="back" data-transition="slide" data-direction="reverse">Back</a>
     </div>
     
 </div>
 
-<div id="page-2" data-role="page">
+<!-- ********** CREATE PAGE ************ -->
+
+<div id="create-page" data-role="page">
     <div data-role="header" data-id="masthead" data-position="fixed">
-       <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag">Menu</a> <h1 id="headerLogo">Libatns</h1>
+       <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag"><h1 id="headerLogo">Libatns</h1></a>
     </div>
     <div data-role="content">
         <div id="main">
@@ -143,29 +191,109 @@
       </div>
     
     </div>
+    <!--- TESTTING SHIT -->
+    
+       
+    <input type="text" name="newDrinkName" id="newDrinkName" placeholder="drink name"><br/>
+    <input type="text" name="instruction1" id="instruction1" placeholder="instruction number 1"><br/>
+    <input type="text" name="instruction2" id="instruction2" placeholder="instruction number 2"><br/>
+    <input type="text" name="instruction3" id="instruction3" placeholder="instruction number 3"><br/>
+  
+    <a href="" data-role="button" id="createDrink">Create Drink</a>
 
         <a href="#" data-role="button" data-rel="back" data-transition="slide" data-direction="reverse">Back</a>
     </div>
     
 </div>
 
-<div id="page-3" data-role="page">
+<!-- ********** PROFILE PAGE ************ -->
+
+<div id="profile-page" data-role="page">
+	<div data-role="header" data-id="masthead" data-position="fixed">
+       <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag"><h1 id="headerLogo">Libatns</h1></a>    
+       </div>
+    
+     <div data-role="content">
+     	
+     	<h1>Profile</h1>
+     	<div>
+     	<div class="profilePic">
+     		<div class="innerProfile">
+     			<img src="img/profile_pic.jpg"/>
+     			<br/><span id="profileUserName">Darren Northcott</span>
+     		</div>
+     	</div>
+     	</div>
+     	<br/>
+     	<ul id="stats" class="largeOrangeButtonList" data-role="listview">
+     		<li id="drinkCount"><a href="" ><span id="userDrinksCount">00</span> Drinks</a></li>
+     		<li id="followerCount"><a href="">10 Followers</a></li>
+     		<li id="likeCount"><a href="">122 Likes</a></li>
+     		<div id="followMeContainer"></div>
+     	</ul>
+     	
+     	<div id="profileGrid">
+     		
+     		
+     	</div>
+     	
+     	
+     </div>
+    
+</div>
+
+<!-- ********** DRINK PAGE ************ -->
+
+<div id="drink-page" data-role="page">
     <div data-role="header" data-id="masthead" data-position="fixed">
-       <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag">Menu</a> <h1 id="headerLogo">Libatns</h1>
+       <a href="#Apanel" data-rel="dialog" data-transition="slidedown" id="menuTag"><h1 id="headerLogo">Libatns</h1></a>
     </div>
     <div data-role="content">
-        <img class="drinkVector" src="img/libatns_iphone_8__0016_FINAL CONFIRMATION.jpg" />
+       <!--  <img class="drinkVector" src="img/libatns_iphone_8__0016_FINAL CONFIRMATION.jpg" /> -->
+       <div id="drinkPosterContainer">
+	       	<h2 id="DrinkPageName">Drink Name</h2>
+	       	<div id="drinkImage">
+	       		<div class="drinkGlass">
+		       		<img src=""/>
+	       		</div>
+	       		<div id="ingredientContainer">
+		       		<ul>
+			       		<li class="ingredientText">1 Part Lorem Ipsum</li>
+			       		<li  class="ingredientText">1 Part Lorem Ipsum</li>
+			       		<li class="ingredientText">1 Part Lorem Ipsum</li>
+		       		</ul>
+	       		</div>
+	       	</div>
+	       	
+	       	<div id="instructions">
+		       	<ol class="instructionsList" data-role="listview">
+		       		<li>lorem ipsum valor decor</li>
+		       		<li>lorem ipsum valor decor</li>
+		       		<li>lorem ipsum valor decor</li>
+		       	</ol>
+	       	</div>
+	       	<p class="drinkCreatedBy"> by: Darren Northcott</p>
+	       	
+       	
+       </div>
+       <div id="drinkActions">
+       	<a href="" data-role="button">42 Likes</a>
+       	<a href="" data-role="button">I'm Drinking This</a>
+       	<a href="" data-role="button">Share</a>
+       </div>
         <a href="#" data-role="button" data-rel="back" data-transition="slide" data-direction="reverse">Back</a>
     </div>
  </div>
+ 
+ <!-- *************** MENU ***************** -->
         
-     <div id="Apanel" data-role="page">
+ <div id="Apanel" data-role="page">
      <div class="MenuHeader">
-     <h1 id="headerLogo">Libatns</h1>
+    <a href="" data-rel="back" data-transition="slidedown" id="menuTag"><h1 id="headerLogo">Libatns</h1></a>
      </div>
      
-<div data-role="content">
-	<div style="text-align:center">
+     <div data-role="content">
+	     <div style="text-align:center">
 	        <hr/>
 		        <span>Featured Drink</span>
 		    <hr/>
@@ -176,48 +304,98 @@
 		        	<h4>By: Darren Northcott</h4>
 		        </div>
 		        <div class="menuItemsContainer">
-			        <a href="#BrowseLanding"  class="menuItems browse" >Browse</a>
-			        <a href="#page-2"  class="menuItems mixMenu endItem">Mix</a>
-			        <a href="#page-2"  class="menuItems favs">Favourites</a>
-			        <a href="#page-2"  class="menuItems profile endItem">Profile</a>
+			        <a href="#browse-page" id="browseButton"  class="menuItems browse" >Browse</a>
+			        <a href="#create-page"  class="menuItems mixMenu endItem">Mix</a>
+			        <a href="#home"  class="menuItems favs">Favourites</a>
+			        <a href="#profile-page"  id="profileButton" class="menuItems profile endItem">Profile</a>
+			        <a href="" onclick="captureImage();" class="photoButton">Snap a drink!</a> 
 		        </div>
-	<a href="" data-role="button" data-rel="back" id="menuTag" class="dialogTag">Back</a>
-	<!-- <a href="#home" data-role="button" data-rel="close">Close</a> -->
+	
+	<!-- <a href="" data-role="button" data-rel="back">Close</a> -->
 	</div></div>   
        
+  <!-- *************** SIGN IN ***************** -->
         
+ <div id="signInPage" data-role="page" data-rel="dialog">
+     <div class="MenuHeader" data-role="header">
+    <a href="" data-rel="back" data-transition="slidedown" id="menuTag"><h1 id="headerLogo">Libatns</h1></a>
+     </div>
+     
+     <div data-role="content">
+	     <div style="text-align:center">
+	        <hr/>
+		        <span>Sign In</span>
+		    <hr/>
+	        </div>
+		        <form id="SignIn">
+		        	
+		        		<input type="text" name="username" placeholder="username" required><br/>
+		        		<input type="password" name="password" placeholder="password" required>
+		        		<a href="" id="signInSubmit">Sign In </a>
+		        	
+		        </form>
+		        
+		        <p>Don't have an account?</p>
+		        <a href="" class="signup">Sign Up</a>
+		        
+		        	
+	<!-- <a href="" data-role="button" data-rel="back">Close</a> -->
+	</div></div>         
 
         <script type="text/javascript">
-            app.initialize();
-            
- // $( "#panel" ).panel( "open"  );   
- 
-/*
- $('div.ui-page').live("swiperight", function(){
-var prevpage = $(this).prev('div[data-role="page"]');
-if (prevpage.length > 0) {
-$.mobile.changePage(prevpage, {transition: "slide",
-reverse: true}, true, true);
-}
-});
-*/
- 
- 
-    
-   
- 
-$("div[data-role=page]").bind("pagebeforeshow", function (e, data) {
-    $.mobile.silentScroll(0);
-    $.mobile.changePage.defaults.transition = 'slide';
-});
-
-
+           
+  
 
 
 
         </script>
         <script>
+        
+        
       $(document).ready(function(){
+                 
+            /* ********** SIGN UP AND CURRENT USER ***************** */
+/*
+Parse.User.logOut();
+ 
+var currentUser = Parse.User.current();  // this will now be null
+
+var currentUser = Parse.User.current();
+if (currentUser) {
+    // do stuff with the user
+    alert('signed in');
+} else {
+    // show the signup or login page
+    $('#sign-in').dialog();
+}
+*/
+
+            
+            
+            //alert('testing parse');
+            
+            /* ANIMATE ACCORDIONS */
+   $('[data-role=collapsible]').bind('expand', function () {
+    $(this).children().slideDown(200); 
+    $('html, body').animate({
+    scrollTop: $('#browseNumber').offset().top-50
+  });
+}).bind('collapse', function () {
+    $(this).children().next().slideUp(200);
+    
+     
+     
+ 
+});
+
+/* liquor list filter clicks */
+
+    
+ 
+
+      
+      
+     
 
         if(typeof console === "undefined"){
           //Dummy console function incase we're doing IE or something
@@ -258,12 +436,12 @@ $("div[data-role=page]").bind("pagebeforeshow", function (e, data) {
               })
             });
             var $mixs = $p.parent().find(".mix")
-            var totalHeight=0;
+            var totalHeight=50;
             $mixs.each(function(){
-              totalHeight += $(this).height();
+              //totalHeight += $(this).height();
             })
             $mixs.each(function(){
-              $(this).find(".parts").text((($(this).height()/totalHeight)*100).toFixed(2) + "%")
+              $(this).find(".parts").text((($(this).height()/totalHeight)).toFixed(0) + " Part(s)")
             })
 
             //$(this).css("marginTop", ev.distanceY)
@@ -284,6 +462,80 @@ $("div[data-role=page]").bind("pagebeforeshow", function (e, data) {
 
       });
     </script>
+   
+   
+    <script>
+    $("#checker").click(function(){
+$(this).toggleClass("itemSelected", "test");});
+
+
+drinkObject = Parse.Object.extend("drinkObject");
+
+
+$("#browseButton").click(function(){
+	getDrinks();
+});
+
+
+
+
+	/*
+$(this).css('background', '#d85c12');
+	$(this).css('border', '2px solid #d85c12');}, function(){
+	$(this).css('background', '#fefefe');
+	$(this).css('border', '2px solid #2b2b2b');
+});
+*/
+
+
+
+/* ************ IMAGE CAPTURE ********************* */
+
+
+// Called when capture operation is finished
+    //
+    function captureSuccess(mediaFiles) {
+        var i, len;
+        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+            uploadFile(mediaFiles[i]);
+        }       
+    }
+
+    // Called if something bad happens.
+    // 
+    function captureError(error) {
+        var msg = 'An error occurred during capture: ' + error.code;
+        navigator.notification.alert(msg, null, 'Uh oh!');
+    }
+
+    // A button will call this function
+    //
+    function captureImage() {
+        // Launch device camera application, 
+        // allowing user to capture up to 2 images
+        navigator.device.capture.captureImage(captureSuccess, captureError, {limit: 2});
+    }
+
+    // Upload files to server
+    function uploadFile(mediaFile) {
+        var ft = new FileTransfer(),
+            path = mediaFile.fullPath,
+            name = mediaFile.name;
+
+        ft.upload(path,
+            "http://my.domain.com/upload.php",
+            function(result) {
+                console.log('Upload success: ' + result.responseCode);
+                console.log(result.bytesSent + ' bytes sent');
+            },
+            function(error) {
+                console.log('Error uploading file ' + path + ': ' + error.code);
+            },
+            { fileName: name });   
+    }
+
+
+        </script>
 
     </body>
 </html>

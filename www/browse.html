@@ -22,28 +22,59 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+              <title>Hello World</title>
         
        
     </head>
     <style>
-	    body{
-		    background:url(img/white_bg.jpg);
-		    
-	    }
-	    
+	  
     </style>
     <body>
-        <div>
-	        
-	        <p>Lorem Ipsum</p>
-	        <a href="" data-role="button">Menu Item 1</a>
-	<a href="" data-role="button">Menu Item 2</a>
-	<a href="" data-role="button">Menu Item 3</a>
-	<a href="" data-role="button">Menu Item 4</a>
-	<a href="" data-role="button" data-rel="back">Back</a>
-	        
-        </div>       
-    </body>
+     <div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    
+    fb.init({
+      appId      : '294322117363532', // App ID from the App Dashboard
+      //channelUrl : '', // Channel File for x-domain communication
+      status     : true, // check the login status upon init?
+      cookie     : true, // set sessions cookies to allow your server to access the session?
+      xfbml      : true  // parse XFBML tags on this page?
+    });
+alert("test");
+    // Additional initialization code such as adding Event Listeners goes here
+    Parse.FacebookUtils.logIn(null, {
+  success: function(user) {
+    if (!user.existed()) {
+      alert("User signed up and logged in through Facebook!");
+    } else {
+      alert("User logged in through Facebook!");
+    }
+  },
+  error: function(user, error) {
+    alert("User cancelled the Facebook login or did not fully authorize.");
+  }
+});
+
+
+  };
+
+  // Load the SDK's source Asynchronously
+  // Note that the debug version is being actively developed and might 
+  // contain some type checks that are overly strict. 
+  // Please report such bugs using the bugs tool.
+  (function(d, debug){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document, /*debug*/ false));
+   
+   </script>
+
+
+    
+          </body>
 </html>
