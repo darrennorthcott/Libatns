@@ -44,12 +44,15 @@ body {
     padding:0px;
     text-transform:uppercase;
     width:100%;
-    background:#fbfbfb;
+    background:#fbfbfb url(../img/bag_stripes.png);
+
+    
 }
 
 .ui-body-c{
-	background:#fbfbfb;
-}
+	background:#fbfbfb url(../img/bag_stripes.png);
+	
+	}
 
 /* Portrait layout (default) */
 .app {
@@ -170,6 +173,7 @@ font-family: Open Sans;
 	border-radius: 4px;
 	//padding-bottom: 10px;
 }
+
 .items2 a{
 display:inline-block;
 	width:95%;
@@ -189,6 +193,18 @@ display:inline-block;
 	height:160px;
 	padding-left:62px;
 	padding-top: 25px;
+	
+}
+.Bubbles{
+height: 100px;
+    left: 65px;
+    padding-left: 62px;
+    padding-top: 25px;
+    position: relative;
+    top: 25px;
+    width: 60px;
+    background:url(../img/bubbles_test.png);
+    -webkit-animation: seamove 6s linear infinite;
 	
 }
 .items2 a span{
@@ -265,7 +281,7 @@ display:inline-block;
 	       }
 	       .MenuHeader {
 		     padding-top: 18px;
-		     background:#fbfbfb url(../img/header_bg_2.png) 10px repeat-x;
+		     background:url(../img/header_bg_2.png) 10px repeat-x;
 		       background-size:14px 48px;
 		       
 		       border:none;
@@ -300,9 +316,9 @@ display:inline-block;
 	position: relative;
 	top: -15px; 
 	margin-top:0;
-	background:#f3f3f3 ;
+	
 	height:100%;
-	//background: url(../img/white_bg.jpg) no-repeat;
+	
 	       }
 	       .dialogTag{
 		       bottom:48px;
@@ -344,34 +360,44 @@ display:inline-block;
 		       width:10%;
 	       }
 	       .menuItems{
-		       width:100px;
-		       height:100px;
-		      display:block;
-		      float:left;
-		       border:4px solid #dfdfdf;
-		       border-radius:0;
+		       width:42%;
+	height:0;
+	padding-bottom:42%;
+	
+	float:left;		      
+	display:block;
+    border:8px solid #e2e2e2;
+		       border-radius:4px;
 		       margin-right: 10px;
 	margin-bottom: 10px;
-	text-indent:-9000px;
-	box-shadow: 1px 1px 4px #aaa;
+	//text-indent:-9000px;
+	
 	line-height: 100px;
 	font-family: Open Sans;
 	color: #262626;
 	text-transform: uppercase;
 	text-decoration: none;
 	font-size: 1em;
+	background:#f8f8f8;
+	background-clip: padding-box;
+	
+	       }
+	       .ui-input-search, ui-input-text{
+		       border: 4px solid #e2e2e2;
+		       background:#fff;
+		       
 	       }
 	       .browse{
-		      background:url(../img/Browse_Menu.png) no-repeat center;
+		      //background:url(../img/Browse_Menu.png) no-repeat center;
 	       }
 	       .mixMenu{
-		       background:url(../img/Create_Menu.png) no-repeat center;
+		       //background:url(../img/Create_Menu.png) no-repeat center;
 	       }
 	       .favs{
-		       background:url(../img/Favs_Menu.png) no-repeat center;
+		       //background:url(../img/Favs_Menu.png) no-repeat center;
 	       }
 	       .profile{
-		       background:url(../img/Me_Menu.png) no-repeat center;
+		       //background:url(../img/Me_Menu.png) no-repeat center;
 	       }
 	       .endItem{
 		       margin-right:0;
@@ -379,7 +405,7 @@ display:inline-block;
 	       .menuItemsContainer{
 		       margin-left:auto;
 		       margin-right:auto;
-		       width:80%;
+		       //width:80%;
 		       height:auto;
 	       }
 	       #featuredDrink{
@@ -568,7 +594,7 @@ a{
 	
 }
 .ui-collapsible-content .ui-btn-up-c{
-	background:none;
+	background:#fbfbfb;
 	//border-bottom:1px solid #e8e8e8;
 	
 }
@@ -866,3 +892,14 @@ display:block;
 	display:inline;
 	font-size:10px;
 }
+
+
+@-webkit-keyframes seamove {
+   0% {
+      background-position: 0 375px;
+   }
+   100% {
+      background-position: 0 0;
+   }
+}
+

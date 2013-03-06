@@ -50,7 +50,7 @@ var app = {
     
 
 };
-var nonCurrentUserProfile;
+
 
 /* ********* SET DEFAULT PAGE TRANSITIONS ************/
 
@@ -67,16 +67,18 @@ var nonCurrentUserProfile;
  
  
             
- /* ********** SIGN UP AND CURRENT USER ***************** */
+ /* Variables */
 
 //Parse.User.logOut();
  var currentUser = Parse.User.current(); //get current user
  var followRelation;
+ var nonCurrentUserProfile;
+ 
  
  $(document).ready(function(){
  
  
-
+/* ********** SIGN UP AND CURRENT USER ***************** */
 
 if (currentUser) {
     // do stuff with the user - pretty much all of teh app should be in this block... 
@@ -84,8 +86,12 @@ if (currentUser) {
     currentUser.fetch({                      //ensure the current user info is up to date
 	    success: function(currentUser) {
    		    alert('signed in as '+currentUser.get("username"));
+   		    
+   		    $("#headerLogo").effect("bounce", { times:3 }, 600); //bounce the pull tab
+   		    
 		    $("#profileUserName").html(currentUser.get("username"));
 		    followRelation = currentUser.relation("following");
+		    updateActivityStream();
 		    }
 });
 } else {
@@ -221,6 +227,19 @@ $("#profileButton").click(function(){
     scrollTop: $('#browseNumber').offset().top
   });
   });
+  
+$("#searchDrinkForm").submit(function(e){
+e.preventDefault();
+var searched = $(".menuSearch").val();
+
+
+	getDrinks(searched);
+	$.mobile.changePage( "#browse-page", { transition: "slideup"} );
+});
+
+$("#activityButton").click(function(){
+	updateActivityStream();
+});
 
 /*
 $(".profileActions").click(function(){
@@ -271,8 +290,14 @@ function drinkSquareAction(item){
 
 /* ************** GET THE DRINKS FOR BROWSE SECTION ********************* */
 
-	function getDrinks() {
+	function getDrinks(forKind) {
 		var query = new Parse.Query(drinkObject);
+		
+		
+		if (forKind != "all"){
+		alert(forKind);
+			query.contains("name", forKind); //CASE SENSITIVE... WTF???
+		}
 
 		query.find({
 			success:function(results) {
@@ -280,7 +305,7 @@ function drinkSquareAction(item){
 				var s = "";
 				for(var i=0, len=results.length; i<len; i++) {
 					var drink = results[i];
-					s += '<a href="#drink-page" data-transition="pop" onclick="drinkSquareAction(this)" ><div class="itemInner"><img src="img/glass.png"/><br/><span class="itemText">'; 								
+					s += '<a href="#drink-page" data-transition="pop" onclick="drinkSquareAction(this)" ><div class="itemInner"><img src="img/glass.png"/><div class="Bubbles"></div><br/><span class="itemText">'; 								
 					s += ""+drink.get("name");
 					s += '<p>By: '+drink.get("createdBy") + " ";
 					s += '<span class="objectID" style="display:none">';
@@ -352,7 +377,7 @@ query.find({
 query.equalTo("username", newUsername);
 query.find({
   success:function(list) {
-    // list contains post liked by the current user which have the title "I'm Hungry".
+    
     
     if(list[0].get("username") == newUsername){
     $('.profileActions').toggleClass("followSelected", "test");
@@ -388,7 +413,75 @@ function logout(){
 	Parse.User.logOut();
 	 $.mobile.changePage( "#signInPage", { transition: "slideup"} );
 }
-      
+
+/* ************* ACTIVITY STREAM ****************** */
+
+//Get a list of your followers
+
+function updateActivityStream(){
+
+//set vars
+var followCreateCollection;
+var followDrinkingCollection;
+var followLikeCollection;
+var followerList;
+
+//open the loading popup
+
+$("#popupBasic").popup("open", {positionTo:"window"});
+
+//update the current users follower list.
+
+currentUser.fetch({
+		success: function(currentUser) {  //updating the user realtion information (there might be a better way to do this)
+   
+   			var followersRelation = currentUser.relation("following");
+   			//alert("updated");
+   			
+   			var followerQuery = followersRelation.query(); //get the followers from the current user
+   			
+   			
+var drinkQuery = new Parse.Query("drinkObject");
+drinkQuery.matchesKeyInQuery("createdBy", "username", followerQuery);
+
+followCreateCollection = drinkQuery.collection(); // create the collection base on the drink -> follower query
+   			
+   			
+   			//sort the collection based on date
+  followCreateCollection.comparator = function(object) {
+  return object.get("createdAt");
+  
+  };
+
+//iterate through the colleciton and output to html
+var h="";
+followCreateCollection.fetch({
+  success: function(collection) {
+    collection.each(function(object) {
+      //console.warn(object);
+      h += "<div>";
+     // alert(object.get("name"));
+      h += object.get("createdBy")+" created ";
+      h += object.get("name")+" <br/>on ";
+      h += object.createdAt+"</div>";
+    });
+    $("#activityContainer").html(h);
+    $("#popupBasic").popup("close");
+  },
+  error: function(collection, error) {
+    // The collection could not be retrieved.
+  }
+});
+
+   			
+   			
+   			
+   			}//end of success of fetch current user data
+   	}); //end of fetch current user data
+
+ 
+
+}//end of updateActivityStream   
 
             
           //  alert('testing parse');

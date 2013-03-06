@@ -27,6 +27,8 @@
        <!--  <link rel="stylesheet" href="css/jquery.mobile-1.3.0-beta.1.css" /> -->
 <script src="js/jquery-1.9.0.min.js"></script>
 <script src="js/jquery.mobile-1.3.0-beta.1.min.js"></script>
+<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
+
 <script type="text/javascript" src="cordova-2.2.0.js"></script>
 <link rel="stylesheet" type="text/css" href="css/index.css" /> 
 <link rel="stylesheet/less" type="text/css" href="style.less">
@@ -67,22 +69,16 @@
 	        
 	        <div data-role="content">
 	        
+	        <div data-role="popup" id="popupBasic">
+    <p>Loading...</p>
+</div>
+	        
 	       	       
 
  
 	        
 	       		<div id="activityContainer" class="items2">
-	       			<div class="activityItem">
-	       				<span class="userIs">Darren Is Drinking</span>
-	       				<div class="drinkItem">
-	       					<a href="#drink-page" data-transition="pop" >
-	       						<div class="itemInner">
-	       							<img src="img/glass.png"/><br/><span class="itemText">Drink Name</span>
-	       						</div>
-	       					</a>
-	       				</div>
-	       				<span class="geoLocation">At Pub and Bar</span>
-	       			</div>
+	       			LOADING...
 	       		</div>
 
 			    
@@ -293,20 +289,16 @@
      </div>
      
      <div data-role="content">
-	     <div style="text-align:center">
-	        <hr/>
-		        <span>Featured Drink</span>
-		    <hr/>
-	        </div>
-		        <div id="featuredDrink">
-		        	<img src="img/glass.png"/>
-		        	<h3>Lorem Drink Name</h3>
-		        	<h4>By: Darren Northcott</h4>
-		        </div>
-		        <div class="menuItemsContainer">
+	     
+	       
+	        
+		         <div class="menuItemsContainer">
+		         <form id="searchDrinkForm" data-ajax="false">
+		        <input type="search" name="searchDrinks" placeholder="find a drink..." class="menuSearch"/>
+		         </form>
 			        <a href="#browse-page" id="browseButton"  class="menuItems browse" >Browse</a>
 			        <a href="#create-page"  class="menuItems mixMenu endItem">Mix</a>
-			        <a href="#home"  class="menuItems favs">Favourites</a>
+			        <a href="#home"  class="menuItems favs" id="activityButton">Activity</a>
 			        <a href="#profile-page"  id="profileButton" class="menuItems profile endItem">Profile</a>
 			        <a href="" onclick="captureImage();" class="photoButton">Snap a drink!</a> 
 		        </div>
@@ -473,7 +465,7 @@ drinkObject = Parse.Object.extend("drinkObject");
 
 
 $("#browseButton").click(function(){
-	getDrinks();
+	getDrinks("all");
 });
 
 
