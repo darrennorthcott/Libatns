@@ -102,8 +102,8 @@ if (currentUser) {
 
 /* Sign in click function  */
 
-$("#signInSubmit").click(function(){
-	
+$("#signInSubmit").click(function(e){
+	e.preventDefault();
 	var username = $("input:text[name='username']").val();
 	var password = $("input:password[name='password']").val();
 	
@@ -127,6 +127,14 @@ $("#signInSubmit").click(function(){
   }
 });
 	
+});
+
+//sign up click function
+
+$("#signUpSubmit").click(function(e){
+	e.preventDefault();
+	alert("alsasldj");
+	userSignUp();
 });
 
 
@@ -240,6 +248,8 @@ var searched = $(".menuSearch").val();
 $("#activityButton").click(function(){
 	updateActivityStream();
 });
+
+
 
 /*
 $(".profileActions").click(function(){
@@ -482,6 +492,50 @@ followCreateCollection.fetch({
  
 
 }//end of updateActivityStream   
+
+
+/* ******* SIGNUP ********* */
+
+function userSignUp(){
+alert("called signup");
+
+var userEmail =  $("#emailSignUp").val();
+var userName =  $("#emailUsername").val();
+var userPass =  $("#emailPass").val();
+var userPassConfirm =  $("#emailPassConfirm").val();
+
+if(userPass == userPassConfirm){
+alert("passwords good");
+var newUser = new Parse.User();
+newUser.set("username", userName);
+newUser.set("password", userPass);
+newUser.set("email", userEmail);
+ 
+// other fields can be set just like with Parse.Object
+
+ 
+newUser.signUp(null, {
+  success: function(user) {
+  alert("success!!!");
+  $.mobile.changePage( "#home", { transition: "slideup"} );
+  currentUser = Parse.User.current();
+  alert(currentUser);
+  updateActivityStream();
+    // Hooray! Let them use the app now.
+     },
+  error: function(user, error) {
+    // Show the error message somewhere and let the user try again.
+    alert("Error: " + error.code + " " + error.message +" - username or email is taken");
+  }
+});
+
+
+	
+}else{
+	alert("passwords don't match");
+}
+
+}//end of sign up
 
             
           //  alert('testing parse');

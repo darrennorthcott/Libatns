@@ -315,22 +315,38 @@
      
      <div data-role="content">
 	     <div style="text-align:center">
+	     <hr/>
+		        <span>Sign Up</span>
+		    <hr/>
+	       
+		        <form id="SignUp" data-ajax="false">
+		        	
+		        		<input type="text" name="usernameSignUp" placeholder="username" id="emailUsername" required><br/>
+		        		<input type="email" name="email" placeholder="email" id="emailSignup" required><br/>
+		        		<input type="password" name="passwordSignUp" placeholder="password" id="emailPass" required><br/>
+		        		<input type="password" name="confirmPassword" placeholder="confirm password" id="emailPassConfirm" required>
+		        		<ia href="" id="signUpSubmit" >signup</a>
+		        	
+		        </form>
+
+	     
+	     
 	        <hr/>
 		        <span>Sign In</span>
 		    <hr/>
-	        </div>
-		        <form id="SignIn">
+	       
+		        <form id="SignIn" data-ajax="false">
 		        	
 		        		<input type="text" name="username" placeholder="username" required><br/>
 		        		<input type="password" name="password" placeholder="password" required>
-		        		<a href="" id="signInSubmit">Sign In </a>
+		        		<input type="submit" id="signInSubmit" value="Sign In">
 		        	
 		        </form>
 		        
 		        <p>Don't have an account?</p>
 		        <a href="" class="signup">Sign Up</a>
 		        
-		        	
+		    </div>     	
 	<!-- <a href="" data-role="button" data-rel="back">Close</a> -->
 	</div></div>         
 
@@ -387,7 +403,7 @@ if (currentUser) {
 
       
       
-     
+    // ++++++++ SIMONS CREATE CODE ++++++ */ 
 
         if(typeof console === "undefined"){
           //Dummy console function incase we're doing IE or something
